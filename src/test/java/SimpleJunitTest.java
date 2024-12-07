@@ -11,8 +11,8 @@ public class SimpleJunitTest {
 
    @BeforeAll
    static void beforeAll() {
-       Configuration.browserSize = "1920x1080"; // разрешение экрана при запуске страницы
-       Configuration.baseUrl = "https://demoqa.com"; // базовый URL
+       Configuration.browserSize = "1920x1080"; 
+       Configuration.baseUrl = "https://demoqa.com"; 
        Configuration.pageLoadStrategy = "eager";
    }
 
