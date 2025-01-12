@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class ConfirmationPage {
     private final static String THANKS_SUBMITTING_FORM = "Thanks for submitting the form";
 
-    private SelenideElement
+    private final SelenideElement
             titleInput = $("#example-modal-sizes-title-lg");
 
     TableComponent tableComponent = new TableComponent();

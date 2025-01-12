@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxPage {
 
-        private SelenideElement
+    private final SelenideElement
                 header = $(".text-center"),
                 nameInput = $("#userName"),
                 userEmailInput = $("#userEmail"),
