@@ -2,10 +2,10 @@ package tests.forms;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.TestBase;
 import pages.components.ConfirmationPage;
 
-public class RegistrationFormTest extends TestBase {
+
+public class RegistrationFormTest extends tests.TestBase {
     final String
             setFirstName = "Ruslan",
             setLastName = "Gusmanov",

@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage{
 
-    final SelenideElement
+    private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
@@ -26,7 +25,6 @@ public class RegistrationPage{
             cityInput = $("#react-select-4-input"),
             submitInput = $("#submit");
 
-    private final static String REGISTRATION_FORM = "Student Registration Form";
 
     CalendarComponent calendarComponent = new CalendarComponent();
 

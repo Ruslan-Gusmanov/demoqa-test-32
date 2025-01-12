@@ -1,13 +1,10 @@
 package tests.elements;
 
 import org.junit.jupiter.api.Test;
-import pages.TestBase;
 import pages.TextBoxPage;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTest extends TestBase {
+public class TextBoxTest extends tests.TestBase {
 
     private String
             fullNameUser = "Ruslan",
