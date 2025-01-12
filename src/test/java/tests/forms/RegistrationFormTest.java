@@ -2,41 +2,14 @@ package tests.forms;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.components.ConfirmationPage;
+import utils.TestData;
 
 
 public class RegistrationFormTest extends tests.TestBase {
-    final String
-            setFirstName = "Ruslan",
-            setLastName = "Gusmanov",
-            setUserEmail = "rg@mail.ru",
-            setUserGender = "Male",
-            setUserNumber = "8927000000",
-            yearOfBirth = "1989",
-            monthOfbirth = "January",
-            dayOfbirth = "01",
-            setSubject = "Maths",
-            setHobbies = "Sports",
-            setPicture = "og_og_148879361322373683.jpg",
-            setAddress = "Moscow",
-            setState = "NCR",
-            setCity = "Delhi";
 
-
-    final String
-            fullNameCellName = "Student Name",
-            emailCellName = "Student Email",
-            genderCellName = "Gender",
-            phoneCellName = "Mobile",
-            birthdayCellName = "Date of Birth",
-            subjectCellName = "Subjects",
-            hobbyCellName = "Hobbies",
-            pictureCellName = "Picture",
-            addressCellName = "Address",
-            stateAndCityCellName = "State and City";
 
     RegistrationPage registrationPage = new RegistrationPage();
-    ConfirmationPage confirmationPage = new ConfirmationPage();
+    TestData testData = new TestData();
 
 
 
@@ -45,34 +18,30 @@ public class RegistrationFormTest extends tests.TestBase {
         registrationPage
                 .openPage()
                 .removeBanner()
-                .setFirstName(setFirstName)
-                .setLastName(setLastName)
-                .setUserEmail(setUserEmail)
-                .setUserGender(setUserGender)
-                .setUserNumber(setUserNumber)
-                .setDateOfBirth(dayOfbirth, monthOfbirth, yearOfBirth)
-                .setSubject(setSubject)
-                .setHobbies(setHobbies)
-                .setPicture(setPicture)
-                .setAddress(setAddress)
-                .setState(setState)
-                .setCity(setCity)
-                .setSubmit();
+                .setFirstName(testData.setFirstName)
+                .setLastName(testData.setLastName)
+                .setUserEmail(testData.setUserEmail)
+                .setUserGender(testData.setUserGender)
+                .setUserNumber(testData.setUserNumber)
+                .setDateOfBirth(testData.userBirthDay, testData.userBirthMonth, testData.userBirthYear)
+                .setSubject(testData.setSubject)
+                .setHobbies(testData.setHobbies)
+                .setPicture(testData.setPicture)
+                .setAddress(testData.setAddress)
+                .setState(testData.setState)
+                .setCity(testData.setCity)
+                .setSubmit()
 
-
-
-        confirmationPage
-                .confirmPage()
-                .confirmResult(fullNameCellName, setFirstName + " " + setLastName)
-                .confirmResult(emailCellName, setUserEmail)
-                .confirmResult(genderCellName, setUserGender)
-                .confirmResult(phoneCellName, setUserNumber)
-                .confirmResult(birthdayCellName, dayOfbirth + " " + monthOfbirth + "," + yearOfBirth)
-                .confirmResult(subjectCellName, setSubject)
-                .confirmResult(hobbyCellName, setHobbies)
-                .confirmResult(pictureCellName, setPicture)
-                .confirmResult(addressCellName, setAddress)
-                .confirmResult(stateAndCityCellName, setState + " " + setCity);
+                .checkResult("Student Name", testData.setFirstName + " " + testData.setLastName)
+                .checkResult("Student Email", testData.setUserEmail)
+                .checkResult("Gender", testData.setUserGender)
+                .checkResult("Mobile", testData.setUserNumber)
+                .checkResult("Date of Birth", testData.userBirthDay + " " +  testData.userBirthMonth + "," + testData.userBirthYear)
+                .checkResult("Subjects", testData.setSubject)
+                .checkResult("Hobbies", testData.setHobbies)
+                .checkResult("Picture", testData.setPicture)
+                .checkResult("Address", testData.setAddress)
+                .checkResult("State and City", testData.setState + " " + testData.setCity);
     }
 
 @Test
@@ -80,44 +49,36 @@ void minFillFormTest() {
     registrationPage
             .openPage()
             .removeBanner()
-            .setFirstName(setFirstName)
-            .setLastName(setLastName)
-            .setUserGender(setUserGender)
-            .setUserNumber(setUserNumber)
-            .setSubject(setSubject)
-            .setHobbies(setHobbies)
-            .setPicture(setPicture)
-            .setAddress(setAddress)
-            .setState(setState)
-            .setCity(setCity)
-            .setSubmit();
+            .setFirstName(testData.setFirstName)
+            .setLastName(testData.setLastName)
+            .setUserGender(testData.setUserGender)
+            .setUserNumber(testData.setUserNumber)
+            .setSubject(testData.setSubject)
+            .setHobbies(testData.setHobbies)
+            .setPicture(testData.setPicture)
+            .setAddress(testData.setAddress)
+            .setState(testData.setState)
+            .setCity(testData.setCity)
+            .setSubmit()
 
-
-
-    confirmationPage
-            .confirmPage()
-            .confirmResult(fullNameCellName, setFirstName + " " + setLastName)
-            .confirmResult(genderCellName, setUserGender)
-            .confirmResult(phoneCellName, setUserNumber)
-            .confirmResult(subjectCellName, setSubject)
-            .confirmResult(hobbyCellName, setHobbies)
-            .confirmResult(pictureCellName, setPicture)
-            .confirmResult(addressCellName, setAddress)
-            .confirmResult(stateAndCityCellName, setState + " " + setCity);
-
-
-
-}
+            .checkResult("Student Name", testData.setFirstName + " " + testData.setLastName)
+            .checkResult("Gender", testData.setUserGender)
+            .checkResult("Mobile", testData.setUserNumber)
+            .checkResult("Subjects", testData.setSubject)
+            .checkResult("Hobbies", testData.setHobbies)
+            .checkResult("Picture", testData.setPicture)
+            .checkResult("Address", testData.setAddress)
+            .checkResult("State and City", testData.setState + " " + testData.setCity);
+    }
     @Test
     void negativeFillFormTest() {
         registrationPage
                 .openPage()
                 .removeBanner()
-                .setFirstName(setFirstName)
-                .setUserGender(setUserGender)
-                .setUserNumber(setUserNumber)
+                .setFirstName(testData.setFirstName)
+                .setUserGender(testData.setUserGender)
+                .setUserNumber(testData.setUserNumber)
                 .setSubmit()
                 .validateLastUserField();
     }
 }
-

@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.TableComponent;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,6 +10,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage{
+    CalendarComponent calendarComponent = new CalendarComponent();
+    TableComponent tableComponent = new TableComponent();
 
     private final SelenideElement
             firstNameInput = $("#firstName"),
@@ -26,7 +29,7 @@ public class RegistrationPage{
             submitInput = $("#submit");
 
 
-    CalendarComponent calendarComponent = new CalendarComponent();
+
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -126,8 +129,11 @@ public class RegistrationPage{
         return this;
     }
 
-    public RegistrationPage validateLastUserField() {
-        lastNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // Проверка на hex #dc3545 в формате rgb
+    public RegistrationPage checkResult(String key, String value) {
+        tableComponent.checkTableResult(key, value);
         return this;
+    }
+    public void validateLastUserField() {
+        lastNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)")); // Проверка на hex #dc3545 в формате rgb
     }
 }

@@ -6,15 +6,13 @@ import pages.TextBoxPage;
 
 public class TextBoxTest extends tests.TestBase {
 
-    private String
-            fullNameUser = "Ruslan",
-            email = "rg@mail.ru",
-            currentAddress = "Moscow",
-            permanentAddress = "Moscow";
-
     TextBoxPage textBox = new TextBoxPage();
     @Test
     void successfulFillInAndSubmitFullFormTest() {
+        String fullNameUser = "Ruslan";
+        String email = "rg@mail.ru";
+        String currentAddress = "Moscow";
+        String permanentAddress = "Moscow";
         textBox.openPage()
                 .setFullName(fullNameUser)
                 .setEmail(email)
